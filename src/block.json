@@ -1,0 +1,59 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "happyprime/toggle-block",
+	"title": "Toggle Block",
+	"category": "widgets",
+	"icon": "location",
+	"description": "Retrieve a template from the site being viewed on the network.",
+	"version": "0.0.1",
+	"textdomain": "toggle-block",
+	"editorScript": "file:index.js",
+	"script": [
+		"file:view.js"
+	],
+	"style": [
+		"file:../src/view.css"
+	],
+	"attributes": {
+		"buttonText": {
+			"type": "string",
+			"default": ""
+		},
+		"controlsId": {
+			"type": "string",
+			"default": ""
+		},
+		"labelText": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"align": true,
+		"alignWide": true,
+		"anchor": true,
+		"color": {
+			"background": true,
+			"enableContrastChecker": true,
+			"text": true,
+			"gradients": true
+		},
+		"defaultStylePicker": true,
+		"dimensions": {
+			"minHeight": true
+		},
+		"html": false,
+		"position": {
+			"sticky": false
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true
+		}
+	}
+}
