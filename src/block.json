@@ -5,7 +5,7 @@
 	"title": "Toggle Block",
 	"category": "widgets",
 	"icon": "location",
-	"description": "Retrieve a template from the site being viewed on the network.",
+	"description": "Toggle button to show and hide another block.",
 	"version": "0.0.1",
 	"textdomain": "toggle-block",
 	"editorScript": "file:index.js",
