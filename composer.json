@@ -3,22 +3,25 @@
 	"description": "Add a toggle to show and hide another block.",
 	"version": "0.1.0",
 	"type": "wordpress-plugin",
+	"minimum-stability": "stable",
 	"license": "GPLv2-or-later",
-	"config": {
-		"allow-plugins": {
-			"dealerdirect/phpcodesniffer-composer-installer": true,
-			"composer/installers": true
-		}
-	},
 	"require-dev": {
-		"squizlabs/php_codesniffer": "*",
-		"dealerdirect/phpcodesniffer-composer-installer": "*",
-		"phpcompatibility/phpcompatibility-wp": "*",
-		"sirbrillig/phpcs-variable-analysis": "*",
-		"wp-coding-standards/wpcs": "*"
+		"happyprime/coding-standards": "*",
+		"phpcompatibility/php-compatibility": "dev-develop as 9.99.99"
 	},
 	"scripts": {
 		"phpcs": "vendor/bin/phpcs",
-		"phpcbf": "vendor/bin/phpcbf"
+		"phpcbf": "vendor/bin/phpcbf",
+		"phpstan": "vendor/bin/phpstan analyse --memory-limit=2048M"
+	},
+	"config": {
+		"allow-plugins": {
+			"composer/installers": true,
+			"dealerdirect/phpcodesniffer-composer-installer": true,
+			"phpstan/extension-installer": true
+		},
+		"platform": {
+			"php": "7.4"
+		}
 	}
 }
