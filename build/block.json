@@ -9,7 +9,7 @@
   "version": "0.0.1",
   "textdomain": "toggle-block",
   "editorScript": "file:index.js",
-  "script": [
+  "viewScript": [
     "file:view.js"
   ],
   "style": [
