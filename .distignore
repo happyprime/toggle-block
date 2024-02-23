@@ -1,7 +1,8 @@
 .git
 .github
-node_modules/
-vendor/
+assets
+node_modules
+vendor
 .distignore
 .eslintrc.js
 .gitignore
