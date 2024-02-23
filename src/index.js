@@ -24,7 +24,8 @@ const Edit = ( props ) => {
 					<TextControl
 						label={ __( 'Controls ID', 'toggle-block' ) }
 						description={ __(
-							'Enter the HTML anchor ID of the element this toggle controls.'
+							'Enter the HTML anchor ID of the element this toggle controls.',
+							'toggle-block'
 						) }
 						value={ controlsId }
 						onChange={ ( value ) =>
@@ -34,7 +35,8 @@ const Edit = ( props ) => {
 					<TextControl
 						label={ __( 'Screen reader text', 'toggle-block' ) }
 						description={ __(
-							'Enter a description of what this toggle controls.'
+							'Enter a description of what this toggle controls.',
+							'toggle-block'
 						) }
 						value={ labelText }
 						onChange={ ( value ) =>
