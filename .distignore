@@ -5,8 +5,8 @@ vendor/
 .distignore
 .eslintrc.js
 .gitignore
+.phpcs.xml.dist
 composer.json
 composer.lock
 package-lock.json
 package.json
-phpcs.xml
