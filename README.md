@@ -10,5 +10,8 @@ The intended use is in a site's template, through the site editor or your theme 
 
 When the toggle block is selected in the editor, toggle settings appear in the sidebar panel:
 
+<img src="assets/screenshot-toggle-block-001.png" alt="A screenshot of the sidebar panel in the block editor with text input fields for Controls ID and screen reader text." style="width:250px; height:auto;">
+
 The "Controls ID" entered in this panel must match the "HTML anchor" assigned to another block through its advanced panel:
 
+<img src="assets/screenshot-toggle-block-002.png" alt="A screenshot of the sidebar panel in the block editor with a text input for HTML anchor" style="width:250px; height:auto;">
