@@ -17,7 +17,7 @@
 		"url": "https://github.com/happyprime/toggle-block/"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^26.2.0"
+		"@wordpress/scripts": "^27.3.0"
 	},
 	"scripts": {
 		"build": "wp-scripts build",
