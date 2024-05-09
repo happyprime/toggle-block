@@ -12,6 +12,13 @@
 			return;
 		}
 
+		// Add a persisting class to the toggle button when it is
+		// clicked for the first time to flag that it has, at one
+		// point in its history, been toggled.
+		if ( ! evt.target.classList.contains( 'toggle-block-has-toggled' ) ) {
+			evt.target.classList.add( 'toggle-block-has-toggled' );
+		}
+
 		if ( toggledBlock.classList.contains( 'toggle-block-hidden' ) ) {
 			evt.target.setAttribute( 'aria-pressed', 'true' );
 			evt.target.setAttribute( 'aria-expanded', 'true' );
