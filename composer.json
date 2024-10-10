@@ -1,7 +1,7 @@
 {
 	"name": "happyprime/toggle-block",
 	"description": "Add a toggle to show and hide another block.",
-	"version": "0.3.0",
+	"version": "0.3.1",
 	"type": "wordpress-plugin",
 	"minimum-stability": "stable",
 	"license": "GPLv2-or-later",
