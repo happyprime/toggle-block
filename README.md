@@ -15,3 +15,15 @@ When the toggle block is selected in the editor, toggle settings appear in the s
 The "Controls ID" entered in this panel must match the "HTML anchor" assigned to another block through its advanced panel:
 
 <img src="assets/screenshot-toggle-block-002.png" alt="A screenshot of the sidebar panel in the block editor with a text input for HTML anchor" style="width:250px; height:auto;">
+
+## Changelog
+
+### 0.3.1
+
+* Add persisting `toggle-block-has-been-toggled` class to toggled element when first toggled.
+
+### 0.3.0
+
+* Add persisting `toggle-block-has-toggled` class to toggle button when first clicked.
+* Update `@wordpress/scripts` to 27.7.0.
+* Update project dependencies.
