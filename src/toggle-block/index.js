@@ -13,7 +13,7 @@ import metadata from './block.json';
 
 const Edit = (props) => {
 	const {
-		attributes: { buttonText, controlsId, labelText },
+		attributes: { bodyClass, buttonText, controlsId, labelText },
 		setAttributes,
 	} = props;
 
@@ -43,6 +43,17 @@ const Edit = (props) => {
 							setAttributes({ labelText: value })
 						}
 					/>
+					<TextControl
+						label={__('Body class', 'toggle-block')}
+						description={__(
+							'Enter a class to add to the body when the toggle is active.',
+							'toggle-block'
+						)}
+						value={bodyClass}
+						onChange={(value) =>
+							setAttributes({ bodyClass: value })
+						}
+					/>
 				</PanelBody>
 			</InspectorControls>
 			<RichText
@@ -61,7 +72,7 @@ const Edit = (props) => {
 
 const Save = (props) => {
 	const {
-		attributes: { buttonText, controlsId, labelText },
+		attributes: { bodyClass, buttonText, controlsId, labelText },
 	} = props;
 
 	return (
@@ -69,6 +80,7 @@ const Save = (props) => {
 			{...useBlockProps.save()}
 			aria-label={labelText}
 			aria-controls={controlsId}
+			{...(bodyClass && { 'data-body-class': bodyClass })}
 		>
 			{buttonText}
 		</button>
