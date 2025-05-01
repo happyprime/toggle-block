@@ -71,6 +71,23 @@ module.exports = {
 						);
 					},
 				},
+				{
+					from: 'src/**/*.css',
+					to({ context, absoluteFilename }) {
+						const srcDir = path.resolve(context, 'src');
+						const relativeToSrc = path.relative(
+							srcDir,
+							absoluteFilename
+						);
+						const dir = path.dirname(relativeToSrc);
+						return path.resolve(
+							context,
+							'build',
+							dir,
+							'[name][ext]'
+						);
+					},
+				},
 			],
 		}),
 	],
