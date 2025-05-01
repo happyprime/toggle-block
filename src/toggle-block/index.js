@@ -115,7 +115,7 @@ const Transforms = {
 					'core/navigation-link',
 					{
 						label: attributes.buttonText || '',
-						url: '',
+						url: '#',
 					},
 					innerBlocks
 				);
