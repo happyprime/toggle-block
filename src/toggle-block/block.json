@@ -16,6 +16,10 @@
 		"file:../src/view.css"
 	],
 	"attributes": {
+		"bodyClass": {
+			"type": "string",
+			"default": ""
+		},
 		"buttonText": {
 			"type": "string",
 			"default": ""
