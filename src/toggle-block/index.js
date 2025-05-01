@@ -4,7 +4,7 @@ import {
 	RichText,
 	useBlockProps,
 } from '@wordpress/block-editor';
-import { registerBlockType } from '@wordpress/blocks';
+import { createBlock, registerBlockType } from '@wordpress/blocks';
 import { PanelBody, TextControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
@@ -90,7 +90,41 @@ const Save = (props) => {
 	);
 };
 
+const Transforms = {
+	from: [
+		{
+			type: 'block',
+			blocks: ['core/navigation-link'],
+			transform: (attributes, innerBlocks) => {
+				return createBlock(
+					'happyprime/toggle-block',
+					{
+						buttonText: attributes.label || attributes.title || '',
+					},
+					innerBlocks
+				);
+			},
+		},
+	],
+	to: [
+		{
+			type: 'block',
+			blocks: ['core/navigation-link'],
+			transform: (attributes, innerBlocks) => {
+				return createBlock(
+					'core/navigation-link',
+					{
+						label: attributes.buttonText || '',
+						url: '',
+					},
+					innerBlocks
+				);
+			},
+		},
+	],
+};
 registerBlockType(metadata, {
 	edit: Edit,
 	save: Save,
+	transforms: Transforms,
 });
