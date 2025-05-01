@@ -13,7 +13,7 @@
 		"file:view.js"
 	],
 	"style": [
-		"file:../src/view.css"
+		"file:view.css"
 	],
 	"attributes": {
 		"bodyClass": {

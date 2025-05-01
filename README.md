@@ -18,6 +18,13 @@ The "Controls ID" entered in this panel must match the "HTML anchor" assigned to
 
 ## Changelog
 
+### 0.4.0
+
+* Add an attribute to toggle a toggle block-specific class on the body element.
+* Allow the toggle block to be placed inside the `core/navigation` block.
+* Add transform support from/to `core/navigation-link` blocks.
+* Update to latest dependencies, build process, and code standards.
+
 ### 0.3.1
 
 * Add persisting `toggle-block-has-been-toggled` class to toggled element when first toggled.
