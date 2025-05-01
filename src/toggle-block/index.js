@@ -11,6 +11,9 @@ import { __ } from '@wordpress/i18n';
 // Internal dependencies.
 import metadata from './block.json';
 
+// Extend the navigation block to allow the toggle block.
+import './extend-navigation-block';
+
 const Edit = (props) => {
 	const {
 		attributes: { bodyClass, buttonText, controlsId, labelText },
