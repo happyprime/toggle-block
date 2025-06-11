@@ -18,6 +18,12 @@ The "Controls ID" entered in this panel must match the "HTML anchor" assigned to
 
 ## Changelog
 
+### 0.5.0
+
+* Wrap button text in a `<span>` element to help with styling.
+* Move editor styles to an editor-only stylesheet.
+* Update to latest dependencies, build process, and code standards.
+
 ### 0.4.0
 
 * Add an attribute to toggle a toggle block-specific class on the body element.
