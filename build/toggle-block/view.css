@@ -2,6 +2,6 @@
 	display: none;
 }
 
-.editor-styles-wrapper .wp-block-happyprime-toggle-block {
-	display: inline-block;
+.wp-block-happyprime-toggle-block span {
+	pointer-events: none;
 }

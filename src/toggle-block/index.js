@@ -10,6 +10,7 @@ import { __ } from '@wordpress/i18n';
 
 // Internal dependencies.
 import metadata from './block.json';
+import deprecated from './deprecated';
 
 // Extend the navigation block to allow the toggle block.
 import './extend-navigation-block';
@@ -85,7 +86,7 @@ const Save = (props) => {
 			aria-controls={controlsId}
 			{...(bodyClass && { 'data-body-class': bodyClass })}
 		>
-			{buttonText}
+			<span>{buttonText}</span>
 		</button>
 	);
 };
@@ -127,4 +128,5 @@ registerBlockType(metadata, {
 	edit: Edit,
 	save: Save,
 	transforms: Transforms,
+	deprecated,
 });
