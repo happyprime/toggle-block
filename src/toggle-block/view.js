@@ -98,9 +98,7 @@
 	};
 
 	const handleClick = (evt) => {
-		const toggle = evt.target.closest(
-			'.wp-block-happyprime-toggle-block'
-		);
+		const toggle = evt.target.closest('.wp-block-happyprime-toggle-block');
 
 		if (!toggle) {
 			return;
@@ -119,8 +117,9 @@
 		}
 
 		const group = getToggleGroup(toggle);
-		const isCurrentlyOpen =
-			!toggledBlock.classList.contains('toggle-block-hidden');
+		const isCurrentlyOpen = !toggledBlock.classList.contains(
+			'toggle-block-hidden'
+		);
 
 		if (group) {
 			// In a group, toggling on closes others.
@@ -194,35 +193,33 @@
 			});
 
 		// Initialize toggle groups: activate the default toggle in each group.
-		document
-			.querySelectorAll('.toggle-block-group')
-			.forEach((group) => {
-				const toggles = getGroupToggles(group);
-				const hasActiveToggle = Array.from(toggles).some((toggle) => {
-					const cId = toggle.getAttribute('aria-controls');
-					if (!cId) return false;
-					const controlled = document.getElementById(cId);
-					return (
-						controlled &&
-						!controlled.classList.contains('toggle-block-hidden')
-					);
-				});
-
-				// If no toggle is already active, activate the default toggle.
-				if (!hasActiveToggle) {
-					const defaultToggle = getDefaultToggle(group);
-
-					if (defaultToggle) {
-						// Close all others first, then open the default.
-						toggles.forEach((toggle) => {
-							if (toggle !== defaultToggle) {
-								toggleOff(toggle);
-							}
-						});
-
-						toggleOn(defaultToggle);
-					}
-				}
+		document.querySelectorAll('.toggle-block-group').forEach((group) => {
+			const toggles = getGroupToggles(group);
+			const hasActiveToggle = Array.from(toggles).some((toggle) => {
+				const cId = toggle.getAttribute('aria-controls');
+				if (!cId) return false;
+				const controlled = document.getElementById(cId);
+				return (
+					controlled &&
+					!controlled.classList.contains('toggle-block-hidden')
+				);
 			});
+
+			// If no toggle is already active, activate the default toggle.
+			if (!hasActiveToggle) {
+				const defaultToggle = getDefaultToggle(group);
+
+				if (defaultToggle) {
+					// Close all others first, then open the default.
+					toggles.forEach((toggle) => {
+						if (toggle !== defaultToggle) {
+							toggleOff(toggle);
+						}
+					});
+
+					toggleOn(defaultToggle);
+				}
+			}
+		});
 	});
 }

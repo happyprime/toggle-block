@@ -5,11 +5,7 @@ import {
 	useBlockProps,
 } from '@wordpress/block-editor';
 import { createBlock, registerBlockType } from '@wordpress/blocks';
-import {
-	PanelBody,
-	TextControl,
-	ToggleControl,
-} from '@wordpress/components';
+import { PanelBody, TextControl, ToggleControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
 // Internal dependencies.
@@ -21,7 +17,13 @@ import './extend-navigation-block';
 
 const Edit = (props) => {
 	const {
-		attributes: { bodyClass, buttonText, controlsId, defaultToggle, labelText },
+		attributes: {
+			bodyClass,
+			buttonText,
+			controlsId,
+			defaultToggle,
+			labelText,
+		},
 		setAttributes,
 	} = props;
 
@@ -91,7 +93,13 @@ const Edit = (props) => {
 
 const Save = (props) => {
 	const {
-		attributes: { bodyClass, buttonText, controlsId, defaultToggle, labelText },
+		attributes: {
+			bodyClass,
+			buttonText,
+			controlsId,
+			defaultToggle,
+			labelText,
+		},
 	} = props;
 
 	return (
