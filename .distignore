@@ -1,9 +1,11 @@
+.claude
 .git
 .github
 assets
 node_modules
 src
 vendor
+.browserslistrc
 .distignore
 .editorconfig
 .eslintrc.js
