@@ -29,6 +29,10 @@
 			"type": "string",
 			"default": ""
 		},
+		"defaultToggle": {
+			"type": "boolean",
+			"default": false
+		},
 		"labelText": {
 			"type": "string",
 			"default": ""

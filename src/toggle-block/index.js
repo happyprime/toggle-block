@@ -5,7 +5,11 @@ import {
 	useBlockProps,
 } from '@wordpress/block-editor';
 import { createBlock, registerBlockType } from '@wordpress/blocks';
-import { PanelBody, TextControl } from '@wordpress/components';
+import {
+	PanelBody,
+	TextControl,
+	ToggleControl,
+} from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
 // Internal dependencies.
@@ -17,7 +21,7 @@ import './extend-navigation-block';
 
 const Edit = (props) => {
 	const {
-		attributes: { bodyClass, buttonText, controlsId, labelText },
+		attributes: { bodyClass, buttonText, controlsId, defaultToggle, labelText },
 		setAttributes,
 	} = props;
 
@@ -58,6 +62,17 @@ const Edit = (props) => {
 							setAttributes({ bodyClass: value })
 						}
 					/>
+					<ToggleControl
+						label={__('Default toggle', 'toggle-block')}
+						help={__(
+							'When inside a toggle group, this toggle will be active by default.',
+							'toggle-block'
+						)}
+						checked={defaultToggle}
+						onChange={(value) =>
+							setAttributes({ defaultToggle: value })
+						}
+					/>
 				</PanelBody>
 			</InspectorControls>
 			<RichText
@@ -76,7 +91,7 @@ const Edit = (props) => {
 
 const Save = (props) => {
 	const {
-		attributes: { bodyClass, buttonText, controlsId, labelText },
+		attributes: { bodyClass, buttonText, controlsId, defaultToggle, labelText },
 	} = props;
 
 	return (
@@ -85,6 +100,7 @@ const Save = (props) => {
 			aria-label={labelText}
 			aria-controls={controlsId}
 			{...(bodyClass && { 'data-body-class': bodyClass })}
+			{...(defaultToggle && { 'data-default-toggle': 'true' })}
 		>
 			<span>{buttonText}</span>
 		</button>
