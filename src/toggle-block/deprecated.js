@@ -6,6 +6,38 @@ const deprecated = [
 			bodyClass: { type: 'string', default: '' },
 			buttonText: { type: 'string', default: '' },
 			controlsId: { type: 'string', default: '' },
+			defaultToggle: { type: 'boolean', default: false },
+			labelText: { type: 'string', default: '' },
+		},
+		save: (props) => {
+			const {
+				attributes: {
+					bodyClass,
+					buttonText,
+					controlsId,
+					defaultToggle,
+					labelText,
+				},
+			} = props;
+
+			return (
+				<button
+					{...useBlockProps.save()}
+					aria-label={labelText}
+					aria-controls={controlsId}
+					{...(bodyClass && { 'data-body-class': bodyClass })}
+					{...(defaultToggle && { 'data-default-toggle': 'true' })}
+				>
+					<span>{buttonText}</span>
+				</button>
+			);
+		},
+	},
+	{
+		attributes: {
+			bodyClass: { type: 'string', default: '' },
+			buttonText: { type: 'string', default: '' },
+			controlsId: { type: 'string', default: '' },
 			labelText: { type: 'string', default: '' },
 		},
 		save: (props) => {

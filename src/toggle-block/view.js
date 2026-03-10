@@ -27,7 +27,6 @@
 			toggledBlock.classList.add('toggle-block-has-been-toggled');
 		}
 
-		toggle.setAttribute('aria-pressed', 'true');
 		toggle.setAttribute('aria-expanded', 'true');
 		toggledBlock.classList.remove('toggle-block-hidden');
 
@@ -56,7 +55,6 @@
 
 		const bodyClass = toggle.getAttribute('data-body-class');
 
-		toggle.setAttribute('aria-pressed', 'false');
 		toggle.setAttribute('aria-expanded', 'false');
 		toggledBlock.classList.add('toggle-block-hidden');
 
@@ -155,7 +153,7 @@
 		}
 	};
 
-	document.addEventListener('DOMContentLoaded', () => {
+	const init = () => {
 		document
 			.querySelectorAll('.wp-block-happyprime-toggle-block')
 			.forEach((el) => {
@@ -174,14 +172,12 @@
 				const bodyClass = el.getAttribute('data-body-class');
 
 				if (toggledBlock.classList.contains('toggle-block-hidden')) {
-					el.setAttribute('aria-pressed', 'false');
 					el.setAttribute('aria-expanded', 'false');
 
 					if (bodyClass) {
 						document.body.classList.remove(bodyClass);
 					}
 				} else {
-					el.setAttribute('aria-pressed', 'true');
 					el.setAttribute('aria-expanded', 'true');
 
 					if (bodyClass) {
@@ -221,5 +217,11 @@
 				}
 			}
 		});
-	});
+	};
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', init);
+	} else {
+		init();
+	}
 }

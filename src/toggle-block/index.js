@@ -105,7 +105,7 @@ const Save = (props) => {
 	return (
 		<button
 			{...useBlockProps.save()}
-			aria-label={labelText}
+			{...(labelText && { 'aria-label': labelText })}
 			aria-controls={controlsId}
 			{...(bodyClass && { 'data-body-class': bodyClass })}
 			{...(defaultToggle && { 'data-default-toggle': 'true' })}

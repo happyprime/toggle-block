@@ -18,6 +18,15 @@ The "Controls ID" entered in this panel must match the "HTML anchor" assigned to
 
 ## Changelog
 
+### 0.6.0
+
+* Add toggle group support: when toggle blocks are inside a container with the `toggle-block-group` class, activating one toggle automatically closes others in the group.
+* Add a "Default toggle" option to mark which toggle should be active by default in a group.
+* Extend block supports to match paragraph and heading blocks: add font family, font style, font weight, letter spacing, text decoration, text transform, writing mode, border, and link color support.
+* Only render `aria-label` when screen reader text is provided, allowing the button text to serve as the accessible name by default.
+* Use `aria-expanded` instead of both `aria-pressed` and `aria-expanded` for toggle state.
+* Update to latest dependencies, build process, and code standards.
+
 ### 0.5.0
 
 * Wrap button text in a `<span>` element to help with styling.
