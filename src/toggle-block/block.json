@@ -6,7 +6,7 @@
 	"category": "widgets",
 	"icon": "location",
 	"description": "Toggle button to show and hide another block.",
-	"version": "0.5.0",
+	"version": "0.6.0",
 	"textdomain": "toggle-block",
 	"editorScript": "file:index.js",
 	"viewScript": [
@@ -29,6 +29,10 @@
 			"type": "string",
 			"default": ""
 		},
+		"defaultToggle": {
+			"type": "boolean",
+			"default": false
+		},
 		"labelText": {
 			"type": "string",
 			"default": ""
@@ -42,7 +46,14 @@
 			"background": true,
 			"enableContrastChecker": true,
 			"text": true,
-			"gradients": true
+			"gradients": true,
+			"link": true
+		},
+		"__experimentalBorder": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true
 		},
 		"defaultStylePicker": true,
 		"dimensions": {
@@ -58,7 +69,14 @@
 		},
 		"typography": {
 			"fontSize": true,
-			"lineHeight": true
+			"lineHeight": true,
+			"__experimentalFontFamily": true,
+			"__experimentalFontStyle": true,
+			"__experimentalFontWeight": true,
+			"__experimentalLetterSpacing": true,
+			"__experimentalTextDecoration": true,
+			"__experimentalTextTransform": true,
+			"__experimentalWritingMode": true
 		}
 	}
 }

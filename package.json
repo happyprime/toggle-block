@@ -1,6 +1,6 @@
 {
 	"name": "toggle-block",
-	"version": "0.5.0",
+	"version": "0.6.0",
 	"description": "Add a toggle to show and hide another block",
 	"author": "Happy Prime",
 	"license": "GPL-2.0-or-later",
@@ -17,16 +17,16 @@
 		"url": "https://github.com/happyprime/toggle-block/"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.27.4",
-		"@babel/plugin-transform-runtime": "^7.27.4",
-		"@babel/preset-env": "^7.27.2",
-		"@babel/preset-react": "^7.27.1",
-		"@babel/runtime": "^7.27.6",
+		"@babel/core": "^7.29.0",
+		"@babel/plugin-transform-runtime": "^7.29.0",
+		"@babel/preset-env": "^7.29.0",
+		"@babel/preset-react": "^7.28.5",
+		"@babel/runtime": "^7.28.6",
 		"@happyprime/eslint-config": "^0.0.14",
-		"@wordpress/dependency-extraction-webpack-plugin": "^6.25.0",
-		"babel-loader": "^10.0.0",
-		"copy-webpack-plugin": "^13.0.0",
-		"webpack": "^5.99.9",
+		"@wordpress/dependency-extraction-webpack-plugin": "^6.41.0",
+		"babel-loader": "^10.1.1",
+		"copy-webpack-plugin": "^14.0.0",
+		"webpack": "^5.105.4",
 		"webpack-cli": "^6.0.1"
 	},
 	"scripts": {
