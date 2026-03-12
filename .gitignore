@@ -1,4 +1,4 @@
 /node_modules
 /vendor
 build/**/*.LICENSE.txt
-.claude
+.claude/settings.local.json
