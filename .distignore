@@ -8,10 +8,10 @@ vendor
 .browserslistrc
 .distignore
 .editorconfig
-.eslintrc.js
 .gitignore
 .phpcs.xml.dist
 .prettierrc.js
+eslint.config.mjs
 composer.json
 composer.lock
 package-lock.json
