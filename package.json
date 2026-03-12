@@ -26,6 +26,7 @@
 		"@wordpress/dependency-extraction-webpack-plugin": "^6.41.0",
 		"babel-loader": "^10.1.1",
 		"copy-webpack-plugin": "^14.0.0",
+		"glob": "^13.0.6",
 		"webpack": "^5.105.4",
 		"webpack-cli": "^6.0.1"
 	},
