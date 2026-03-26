@@ -27,6 +27,7 @@
 		"babel-loader": "^10.1.1",
 		"copy-webpack-plugin": "^14.0.0",
 		"glob": "^13.0.6",
+		"@wordpress/env": "^10.0.0",
 		"webpack": "^5.105.4",
 		"webpack-cli": "^6.0.1"
 	},
@@ -34,6 +35,11 @@
 		"build": "webpack --mode production",
 		"start": "webpack --mode development --watch",
 		"lint": "eslint .",
-		"fix": "eslint . --fix"
+		"fix": "eslint . --fix",
+		"env:start": "wp-env start",
+		"env:stop": "wp-env stop",
+		"env:destroy": "wp-env destroy",
+		"env:cli": "wp-env run cli",
+		"env:logs": "wp-env logs"
 	}
 }
