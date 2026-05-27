@@ -11,6 +11,7 @@ vendor
 .gitignore
 .phpcs.xml.dist
 .prettierrc.js
+eslint.config.mjs
 composer.json
 composer.lock
 eslint.config.mjs

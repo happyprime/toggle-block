@@ -24,6 +24,7 @@
 		"@babel/runtime": "^7.29.7",
 		"@happyprime/eslint-config": "^1.0.0",
 		"@wordpress/dependency-extraction-webpack-plugin": "^6.47.0",
+		"@wordpress/env": "^11.7.0",
 		"babel-loader": "^10.1.1",
 		"copy-webpack-plugin": "^14.0.0",
 		"webpack": "^5.107.2",
@@ -33,6 +34,11 @@
 		"build": "webpack --mode production",
 		"start": "webpack --mode development --watch",
 		"lint": "eslint .",
-		"fix": "eslint . --fix"
+		"fix": "eslint . --fix",
+		"env:start": "wp-env start",
+		"env:stop": "wp-env stop",
+		"env:destroy": "wp-env destroy",
+		"env:cli": "wp-env run cli",
+		"env:logs": "wp-env logs"
 	}
 }
