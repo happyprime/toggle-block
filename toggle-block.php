@@ -2,7 +2,7 @@
 /**
  * Plugin Name:  Toggle Block
  * Description:  Add a toggle to show and hide another block.
- * Version:      0.6.0
+ * Version:      1.0.0
  * Plugin URI:   https://github.com/happyprime/toggle-block/
  * Author:       Happy Prime
  * Author URI:   https://happyprime.co

@@ -6,7 +6,7 @@
 	"category": "widgets",
 	"icon": "location",
 	"description": "Toggle button to show and hide another block.",
-	"version": "0.6.0",
+	"version": "1.0.0",
 	"textdomain": "toggle-block",
 	"editorScript": "file:index.js",
 	"viewScript": [
