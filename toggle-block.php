@@ -30,26 +30,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 add_action( 'init', __NAMESPACE__ . '\register' );
-add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\alter_view_script' );
 
 /**
  * Register the block.
  */
 function register(): void {
 	register_block_type_from_metadata( __DIR__ . '/build/toggle-block' );
-}
-
-/**
- * Ensure the block's view script is output in document footer.
- */
-function alter_view_script(): void {
-	wp_deregister_script( 'happyprime-toggle-block-view-script' );
-
-	wp_register_script(
-		'happyprime-toggle-block-view-script',
-		plugins_url( 'build/toggle-block/view.js', __FILE__ ),
-		[],
-		(string) filemtime( __DIR__ . '/build/toggle-block/view.js' ),
-		true
-	);
 }
