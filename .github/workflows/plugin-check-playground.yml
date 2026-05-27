@@ -50,7 +50,7 @@ jobs:
           composer config --global --unset --auth github-oauth.github.com 2>/dev/null || true
           rm -f "$(composer -n config --global home 2>/dev/null)/auth.json" || true
           rm -f "$HOME/.composer/auth.json" "$HOME/.config/composer/auth.json" || true
-          wp package install wp-cli/dist-archive-command
+          wp package install wp-cli/dist-archive-command:3.1.0
 
       - name: Extract the zip to a fresh directory
         run: |
