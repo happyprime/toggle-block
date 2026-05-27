@@ -23,7 +23,7 @@
  * @package toggle-block
  */
 
-namespace ToggleBlock;
+namespace HappyPrime\ToggleBlock;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
