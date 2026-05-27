@@ -8,7 +8,7 @@
  * Author URI:   https://happyprime.co
  * Text Domain:  toggle-block
  * Requires PHP: 7.4
- * Update URI:   false
+ * Tested up to: 7.0
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
