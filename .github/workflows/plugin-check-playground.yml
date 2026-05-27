@@ -39,12 +39,18 @@ jobs:
         run: npm run build
 
       - name: Install dist-archive-command
-        run: wp package install wp-cli/dist-archive-command
         env:
-          # dist-archive-command is a public package; clear any token so
-          # WP-CLI's bundled Composer doesn't reject it during validation.
           GITHUB_TOKEN: ''
           COMPOSER_AUTH: ''
+        run: |
+          # setup-php writes the runner token into Composer's global auth.json,
+          # and wp-cli's older bundled Composer rejects its format ("invalid
+          # characters"). dist-archive-command is public, so remove the stored
+          # token before installing.
+          composer config --global --unset --auth github-oauth.github.com 2>/dev/null || true
+          rm -f "$(composer -n config --global home 2>/dev/null)/auth.json" || true
+          rm -f "$HOME/.composer/auth.json" "$HOME/.config/composer/auth.json" || true
+          wp package install wp-cli/dist-archive-command
 
       - name: Extract the zip to a fresh directory
         run: |
