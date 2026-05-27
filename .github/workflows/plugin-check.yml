@@ -1,0 +1,16 @@
+# Run WP.org's Plugin Check.
+#
+# This file is managed in https://github.com/happyprime/projects
+name: WP.org Plugin Check
+
+on:
+  push:
+    branches:
+      - trunk
+  pull_request:
+    branches:
+      - trunk
+
+jobs:
+  call-workflow:
+    uses: happyprime/workflows/.github/workflows/plugin-check.yml@trunk

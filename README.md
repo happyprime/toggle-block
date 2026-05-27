@@ -1,8 +1,8 @@
 # Toggle Block
 
-Add a toggle in the WordPress block editor to show and hide another block.
+Add a toggle in the block editor to show and hide another block.
 
-## Usage
+## Description
 
 Toggle Block is a very rudimentary block. It renders as a `<button>` element on the front-end that is used to show or hide another target element (via its ID) on the page. It uses `aria-controls` and `aria-label` in an attempt to make it compatible with assistive technology.
 

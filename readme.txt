@@ -1,9 +1,9 @@
 # Toggle Block
 Contributors: happyprime, jeremyfelt, slocker, philcable
-Tags: accessibility, toggle, button, show, hide
+Tags: toggle, button, show, hide
 Requires at least: 6.9
 Tested up to: 7.0
-Stable tag: 0.6.0
+Stable tag: 1.0.0
 License: GPLv2 or later
 Requires PHP: 7.4
 
@@ -19,11 +19,11 @@ The intended use is in a site's template, through the site editor or your theme 
 
 1. Install and activate the plugin.
 2. Add a Toggle Block in the editor where you want the show/hide control to appear.
-3. Enter a "Controls ID" in the block's sidebar panel that matches the "HTML anchor" assigned to the block you want to toggle.
+3. Use the block selector in the side panel or enter a "Controls ID" that matches the "HTML anchor" assigned to the block you want to toggle.
 
 ## Usage
 
-When the toggle block is selected in the editor, toggle settings appear in the sidebar panel, including text input fields for "Controls ID" and screen reader text.
+When the toggle block is selected in the editor, toggle settings appear in the sidebar panel, including a block selection interface and text input fields for "Controls ID" and screen reader text.
 
 The "Controls ID" entered in this panel must match the "HTML anchor" assigned to another block through its advanced panel. When the toggle is activated, the targeted block is shown or hidden.
 
