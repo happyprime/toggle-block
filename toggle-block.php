@@ -6,6 +6,8 @@
  * Plugin URI:   https://github.com/happyprime/toggle-block/
  * Author:       Happy Prime
  * Author URI:   https://happyprime.co
+ * License:      GPL-2.0-or-later
+ * License URI:  https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:  toggle-block
  * Requires PHP: 7.4
  * Tested up to: 7.0
