@@ -6,6 +6,8 @@
  * Plugin URI:   https://github.com/happyprime/toggle-block/
  * Author:       Happy Prime
  * Author URI:   https://happyprime.co
+ * License:      GPL-2.0-or-later
+ * License URI:  https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:  toggle-block
  * Requires PHP: 7.4
  * Tested up to: 7.0
@@ -23,33 +25,17 @@
  * @package toggle-block
  */
 
-namespace ToggleBlock;
+namespace HappyPrime\ToggleBlock;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 add_action( 'init', __NAMESPACE__ . '\register' );
-add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\alter_view_script' );
 
 /**
  * Register the block.
  */
 function register(): void {
 	register_block_type_from_metadata( __DIR__ . '/build/toggle-block' );
-}
-
-/**
- * Ensure the block's view script is output in document footer.
- */
-function alter_view_script(): void {
-	wp_deregister_script( 'happyprime-toggle-block-view-script' );
-
-	wp_register_script(
-		'happyprime-toggle-block-view-script',
-		plugins_url( 'build/toggle-block/view.js', __FILE__ ),
-		[],
-		(string) filemtime( __DIR__ . '/build/toggle-block/view.js' ),
-		true
-	);
 }

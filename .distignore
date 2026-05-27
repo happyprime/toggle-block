@@ -11,11 +11,13 @@ vendor
 .gitignore
 .phpcs.xml.dist
 .prettierrc.js
-eslint.config.mjs
+.wp-env.json
+.wp-env.override.json
 composer.json
 composer.lock
 eslint.config.mjs
 package-lock.json
 package.json
 phpstan.neon.dist
+README.md
 webpack.config.js
