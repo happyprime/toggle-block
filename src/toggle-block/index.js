@@ -11,6 +11,7 @@ import { __ } from '@wordpress/i18n';
 // Internal dependencies.
 import metadata from './block.json';
 import deprecated from './deprecated';
+import BlockSelector from './block-selector';
 
 // Extend the navigation block to allow the toggle block.
 import './extend-navigation-block';
@@ -24,6 +25,7 @@ const Edit = (props) => {
 			defaultToggle,
 			labelText,
 		},
+		clientId,
 		setAttributes,
 	} = props;
 
@@ -31,16 +33,10 @@ const Edit = (props) => {
 		<>
 			<InspectorControls>
 				<PanelBody title={__('Toggle settings', 'toggle-block')}>
-					<TextControl
-						label={__('Controls ID', 'toggle-block')}
-						description={__(
-							'Enter the HTML anchor ID of the element this toggle controls.',
-							'toggle-block'
-						)}
-						value={controlsId}
-						onChange={(value) =>
-							setAttributes({ controlsId: value })
-						}
+					<BlockSelector
+						clientId={clientId}
+						controlsId={controlsId}
+						setAttributes={setAttributes}
 					/>
 					<TextControl
 						label={__('Screen reader text', 'toggle-block')}

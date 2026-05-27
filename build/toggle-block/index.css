@@ -1,3 +1,146 @@
 .editor-styles-wrapper .wp-block-happyprime-toggle-block {
 	display: inline-block;
 }
+
+.toggle-block-selector__current {
+	background: #f0f0f0;
+	border-radius: 4px;
+	padding: 12px;
+	margin-bottom: 12px;
+}
+
+.toggle-block-selector__current--orphan {
+	background: transparent;
+	padding: 0;
+}
+
+.toggle-block-selector__current-header {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	margin-bottom: 6px;
+}
+
+.toggle-block-selector__current-title {
+	font-weight: 600;
+}
+
+.toggle-block-selector__current-anchor {
+	display: inline-block;
+	font-size: 12px;
+	background: #fff;
+	padding: 2px 6px;
+	border-radius: 3px;
+	word-break: break-all;
+}
+
+.toggle-block-selector__current-preview {
+	margin: 8px 0 0;
+	font-size: 12px;
+	color: #555;
+	line-height: 1.4;
+}
+
+.toggle-block-selector__empty {
+	margin: 0 0 12px;
+	font-size: 12px;
+	color: #555;
+}
+
+.toggle-block-selector__actions {
+	display: flex;
+	gap: 8px;
+	margin-bottom: 8px;
+}
+
+.toggle-block-selector__manual-toggle {
+	padding: 0;
+	font-size: 12px;
+}
+
+.toggle-block-selector__modal {
+	max-width: 560px;
+}
+
+.toggle-block-selector__list {
+	list-style: none;
+	margin: 12px 0 0;
+	padding: 0;
+	max-height: 60vh;
+	overflow-y: auto;
+}
+
+.toggle-block-selector__list-item {
+	margin: 0;
+	padding: 0;
+}
+
+.toggle-block-selector__list-item + .toggle-block-selector__list-item {
+	border-top: 1px solid #f0f0f0;
+}
+
+.toggle-block-selector__list-item.is-selected .toggle-block-selector__list-button {
+	background: #f0f6fc;
+}
+
+.toggle-block-selector__list-button {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	width: 100%;
+	padding: 10px 12px;
+	background: transparent;
+	border: 0;
+	border-radius: 4px;
+	cursor: pointer;
+	text-align: left;
+}
+
+.toggle-block-selector__list-button:hover,
+.toggle-block-selector__list-button:focus {
+	background: #f0f0f0;
+}
+
+.toggle-block-selector__list-icon {
+	flex: 0 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 24px;
+	height: 24px;
+	margin-top: 2px;
+}
+
+.toggle-block-selector__list-body {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+.toggle-block-selector__list-title {
+	font-weight: 600;
+	font-size: 13px;
+}
+
+.toggle-block-selector__list-preview {
+	font-size: 12px;
+	color: #555;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.toggle-block-selector__list-anchor {
+	font-size: 11px;
+	color: #777;
+	font-family: Menlo, Consolas, monospace;
+	word-break: break-all;
+}
+
+.toggle-block-selector__no-results {
+	margin: 16px 0;
+	color: #555;
+	font-size: 13px;
+}

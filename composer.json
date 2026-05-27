@@ -5,6 +5,21 @@
 	"type": "wordpress-plugin",
 	"minimum-stability": "stable",
 	"license": "GPLv2-or-later",
+	"repositories": [
+		{
+			"type": "package",
+			"package": {
+				"name": "phpcompatibility/php-compatibility",
+				"type": "phpcodesniffer-standard",
+				"version": "9.99.9",
+				"source": {
+					"url": "https://github.com/PHPCompatibility/PHPCompatibility.git",
+					"type": "git",
+					"reference": "9f7142356b5674164a6f6dbe12a7a1bcc632db21"
+				}
+			}
+		}
+	],
 	"require-dev": {
 		"happyprime/coding-standards": "*",
 		"phpcompatibility/php-compatibility": "9.99.9"
