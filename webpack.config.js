@@ -1,5 +1,5 @@
 const path = require('path');
-const glob = require('glob');
+const { globSync } = require('fs');
 const DependencyExtractionWebpackPlugin = require('@wordpress/dependency-extraction-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
@@ -12,7 +12,7 @@ const CopyPlugin = require('copy-webpack-plugin');
  */
 const getEntries = () => {
 	const entries = {};
-	const files = glob.sync('./src/**/*(index|view).js');
+	const files = globSync(['./src/**/index.js', './src/**/view.js']);
 
 	files.forEach((file) => {
 		const relativePath = path.relative('./src', file);
