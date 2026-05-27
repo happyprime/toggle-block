@@ -2,7 +2,15 @@
 /**
  * Plugin Name:  Toggle Block
  * Description:  Add a toggle to show and hide another block.
-
+ * Version:      0.6.0
+ * Plugin URI:   https://github.com/happyprime/toggle-block/
+ * Author:       Happy Prime
+ * Author URI:   https://happyprime.co
+ * License:      GPL-2.0-or-later
+ * License URI:  https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:  toggle-block
+ * Requires PHP: 7.4
+ * Tested up to: 7.0
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
