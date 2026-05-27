@@ -3,7 +3,7 @@ Contributors: happyprime, jeremyfelt, slocker, philcable
 Tags: toggle, button, show, hide
 Requires at least: 6.9
 Tested up to: 7.0
-Stable tag: 0.6.0
+Stable tag: 1.0.0
 License: GPLv2 or later
 Requires PHP: 7.4
 
