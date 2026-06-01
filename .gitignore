@@ -2,3 +2,4 @@
 /vendor
 build/**/*.LICENSE.txt
 .claude/
+.reviews/
