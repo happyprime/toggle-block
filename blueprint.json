@@ -1,4 +1,7 @@
 {
+  "preferredVersions": {
+    "wp": "7.0"
+  },
   "steps": [
     {"step": "wp-cli", "command": "wp plugin activate toggle-block"}
   ]
