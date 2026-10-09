@@ -11,6 +11,20 @@
 		);
 
 	/**
+	 * Returns the body classes a toggle sets while its block is open.
+	 *
+	 * The value can hold several space-separated classes, which classList
+	 * rejects as a single token.
+	 *
+	 * @param {HTMLElement} toggle The toggle button element.
+	 * @returns {string[]} The class names.
+	 */
+	const getBodyClasses = (toggle) =>
+		(toggle.getAttribute('data-body-class') || '')
+			.split(/\s+/)
+			.filter(Boolean);
+
+	/**
 	 * Toggle a block on (show its controlled element).
 	 *
 	 * @param {HTMLElement} toggle The toggle button element.
@@ -28,7 +42,7 @@
 			return;
 		}
 
-		const bodyClass = toggle.getAttribute('data-body-class');
+		const bodyClasses = getBodyClasses(toggle);
 
 		if (!toggle.classList.contains('toggle-block-has-toggled')) {
 			toggle.classList.add('toggle-block-has-toggled');
@@ -43,9 +57,7 @@
 		);
 		toggledBlock.classList.remove('toggle-block-hidden');
 
-		if (bodyClass) {
-			document.body.classList.add(bodyClass);
-		}
+		document.body.classList.add(...bodyClasses);
 	};
 
 	/**
@@ -66,16 +78,14 @@
 			return;
 		}
 
-		const bodyClass = toggle.getAttribute('data-body-class');
+		const bodyClasses = getBodyClasses(toggle);
 
 		getControllingToggles(controlsId).forEach((el) =>
 			el.setAttribute('aria-expanded', 'false')
 		);
 		toggledBlock.classList.add('toggle-block-hidden');
 
-		if (bodyClass) {
-			document.body.classList.remove(bodyClass);
-		}
+		document.body.classList.remove(...bodyClasses);
 	};
 
 	/**
@@ -258,20 +268,16 @@
 					return;
 				}
 
-				const bodyClass = el.getAttribute('data-body-class');
+				const bodyClasses = getBodyClasses(el);
 
 				if (toggledBlock.classList.contains('toggle-block-hidden')) {
 					el.setAttribute('aria-expanded', 'false');
 
-					if (bodyClass) {
-						document.body.classList.remove(bodyClass);
-					}
+					document.body.classList.remove(...bodyClasses);
 				} else {
 					el.setAttribute('aria-expanded', 'true');
 
-					if (bodyClass) {
-						document.body.classList.add(bodyClass);
-					}
+					document.body.classList.add(...bodyClasses);
 				}
 
 				el.addEventListener('click', handleClick);
