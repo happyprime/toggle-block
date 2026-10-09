@@ -20,7 +20,7 @@ npm run env:start
 
 `env:start` builds the block, starts WordPress 7.1 at http://localhost:8980 (log in at `/wp-admin` as `admin` / `password`), and runs `env:seed`. The seed activates Twenty Twenty-Five, turns on pretty permalinks, and creates two pages:
 
-* **Toggle Block demo** (the front page): hidden and visible targets, screen reader text, a toggle group with a default toggle, and a body class toggle.
+* **Toggle Block demo** (the front page): hidden and visible targets, screen reader text, a toggle group with a default toggle, a body class toggle, and open and close buttons for one panel.
 * **Toggle Block in navigation**: a toggle inside a Navigation block.
 
 `npm run env:stop` stops the site and `npm run env:destroy` removes it.

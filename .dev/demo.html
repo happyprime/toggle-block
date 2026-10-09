@@ -125,3 +125,31 @@
 <p>The body has the <code>toggle-block-demo-dark</code> class while this panel is open.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Open and close buttons</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Two toggles control one panel. Opening moves focus to the close button inside the panel, and closing returns it to the open button. Escape closes the panel from anywhere inside it.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:happyprime/toggle-block {"buttonText":"Open menu","controlsId":"menu-panel"} -->
+<button class="wp-block-happyprime-toggle-block" aria-controls="menu-panel"><span>Open menu</span></button>
+<!-- /wp:happyprime/toggle-block -->
+
+<!-- wp:group {"className":"toggle-block-hidden","layout":{"type":"constrained"}} -->
+<div id="menu-panel" class="wp-block-group toggle-block-hidden"><!-- wp:happyprime/toggle-block {"buttonText":"Close menu","controlsId":"menu-panel"} -->
+<button class="wp-block-happyprime-toggle-block" aria-controls="menu-panel"><span>Close menu</span></button>
+<!-- /wp:happyprime/toggle-block -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li><a href="#menu-panel">First menu link</a></li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><a href="#menu-panel">Second menu link</a></li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></div>
+<!-- /wp:group -->
