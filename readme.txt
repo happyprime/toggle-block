@@ -27,6 +27,16 @@ When the toggle block is selected in the editor, toggle settings appear in the s
 
 The "Controls ID" entered in this panel must match the "HTML anchor" assigned to another block through its advanced panel. When the toggle is activated, the targeted block is shown or hidden.
 
+To hide the targeted block until the toggle is activated, add `toggle-block-hidden` to its "Additional CSS class(es)" field. The class takes effect in block themes.
+
+To make toggles close one another, place them inside a block with the `toggle-block-group` class. Turn on "Default toggle" for the one that should be open when the others are closed.
+
+When a toggle opens a block that contains links, buttons, or form fields, focus moves to the first of them. Pressing Escape inside the block closes it and returns focus to the toggle.
+
+## Source code
+
+The JavaScript in `build/` is compiled from `src/` in the plugin's repository: https://github.com/happyprime/toggle-block
+
 ## Changelog
 
 ### 1.0.0
