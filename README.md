@@ -8,6 +8,34 @@ Toggle Block is a very rudimentary block. It renders as a `<button>` element on 
 
 The intended use is in a site's template, through the site editor or your theme files, rather than as a block that is frequently used in content.
 
+## Development
+
+Requires Docker and Node 24.
+
+```sh
+npm install
+composer install
+npm run env:start
+```
+
+`env:start` builds the block, starts WordPress 7.1 at http://localhost:8980 (log in at `/wp-admin` as `admin` / `password`), and runs `env:seed`. The seed activates Twenty Twenty-Five, turns on pretty permalinks, and creates two pages:
+
+* **Toggle Block demo** (the front page): hidden and visible targets, screen reader text, a toggle group with a default toggle, and a body class toggle.
+* **Toggle Block in navigation**: a toggle inside a Navigation block.
+
+`npm run env:stop` stops the site and `npm run env:destroy` removes it.
+
+Checks:
+
+```sh
+composer phpcs
+composer phpstan
+npm run lint:js
+npm run lint:css
+npm run lint:package
+npm run build
+```
+
 ## Changelog
 
 ### 1.0.0

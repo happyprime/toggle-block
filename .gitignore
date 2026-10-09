@@ -3,3 +3,8 @@
 build/**/*.LICENSE.txt
 .claude/
 .reviews/
+.wp-env.override.json
+.phpunit.result.cache
+/artifacts
+/playwright-report
+/test-results

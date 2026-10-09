@@ -1,6 +1,9 @@
 {
-	"core": "WordPress/WordPress#7.0",
-	"phpVersion": "8.2",
+	"$schema": "https://schemas.wp.org/trunk/wp-env.json",
+	"core": "WordPress/WordPress#7.1-branch",
+	"phpVersion": "8.4",
+	"port": 8980,
+	"testsEnvironment": false,
 	"plugins": [
 		"."
 	],
