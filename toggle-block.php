@@ -34,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_action( 'init', __NAMESPACE__ . '\register' );
 
 /**
- * Register the block.
+ * Registers the block.
  */
 function register(): void {
 	register_block_type_from_metadata( __DIR__ . '/build/toggle-block' );
