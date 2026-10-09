@@ -40,7 +40,7 @@ const Edit = (props) => {
 					/>
 					<TextControl
 						label={__('Screen reader text', 'toggle-block')}
-						description={__(
+						help={__(
 							'Enter a description of what this toggle controls.',
 							'toggle-block'
 						)}
@@ -51,7 +51,7 @@ const Edit = (props) => {
 					/>
 					<TextControl
 						label={__('Body class', 'toggle-block')}
-						description={__(
+						help={__(
 							'Enter a class to add to the body when the toggle is active.',
 							'toggle-block'
 						)}
@@ -82,6 +82,8 @@ const Edit = (props) => {
 				onChange={(value) => {
 					setAttributes({ buttonText: value });
 				}}
+				// A link inside a button is invalid HTML.
+				withoutInteractiveFormatting
 			/>
 		</>
 	);

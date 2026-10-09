@@ -1,5 +1,36 @@
 import { useBlockProps } from '@wordpress/block-editor';
 
+// Every save below shipped with these supports. Deprecations do not inherit
+// supports from block.json, so without them an old toggle with an anchor or
+// custom spacing fails validation.
+const supports = {
+	align: true,
+	alignWide: true,
+	anchor: true,
+	color: {
+		background: true,
+		enableContrastChecker: true,
+		text: true,
+		gradients: true,
+	},
+	defaultStylePicker: true,
+	dimensions: {
+		minHeight: true,
+	},
+	html: false,
+	position: {
+		sticky: false,
+	},
+	spacing: {
+		margin: true,
+		padding: true,
+	},
+	typography: {
+		fontSize: true,
+		lineHeight: true,
+	},
+};
+
 const deprecated = [
 	{
 		attributes: {
@@ -9,6 +40,7 @@ const deprecated = [
 			defaultToggle: { type: 'boolean', default: false },
 			labelText: { type: 'string', default: '' },
 		},
+		supports,
 		save: (props) => {
 			const {
 				attributes: {
@@ -40,6 +72,7 @@ const deprecated = [
 			controlsId: { type: 'string', default: '' },
 			labelText: { type: 'string', default: '' },
 		},
+		supports,
 		save: (props) => {
 			const {
 				attributes: { bodyClass, buttonText, controlsId, labelText },
@@ -64,6 +97,7 @@ const deprecated = [
 			controlsId: { type: 'string' },
 			labelText: { type: 'string' },
 		},
+		supports,
 		save: (props) => {
 			const {
 				attributes: { bodyClass, buttonText, controlsId, labelText },

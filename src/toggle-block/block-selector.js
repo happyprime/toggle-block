@@ -1,6 +1,6 @@
 // WordPress dependencies.
 import { BlockIcon } from '@wordpress/block-editor';
-import { getBlockType } from '@wordpress/blocks';
+import { getBlockType, hasBlockSupport } from '@wordpress/blocks';
 import {
 	Button,
 	Modal,
@@ -117,7 +117,8 @@ const BlockSelector = ({ clientId, controlsId, setAttributes }) => {
 			if (block.name === 'happyprime/toggle-block') {
 				return false;
 			}
-			return true;
+			// A generated anchor only saves on blocks that support one.
+			return hasBlockSupport(block.name, 'anchor');
 		});
 	}, [allBlocks, clientId]);
 

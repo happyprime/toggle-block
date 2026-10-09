@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<ruleset name="Toggle Block">
+	<description>Happy Prime coding standards for Toggle Block.</description>
+
+	<file>.</file>
+
+	<exclude-pattern>build/*</exclude-pattern>
+
+	<rule ref="HappyPrime"/>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="toggle-block"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="HappyPrime\ToggleBlock"/>
+				<element value="toggle_block"/>
+			</property>
+		</properties>
+	</rule>
+</ruleset>

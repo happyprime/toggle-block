@@ -1,0 +1,15 @@
+<!-- wp:paragraph -->
+<p>The navigation block below holds a Toggle Block that opens a search panel.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:navigation {"overlayMenu":"never"} -->
+<!-- wp:navigation-link {"label":"Demo","url":"/","kind":"custom"} /-->
+
+<!-- wp:happyprime/toggle-block {"buttonText":"Search","controlsId":"nav-search-panel"} -->
+<button class="wp-block-happyprime-toggle-block" aria-controls="nav-search-panel"><span>Search</span></button>
+<!-- /wp:happyprime/toggle-block -->
+<!-- /wp:navigation -->
+
+<!-- wp:group {"className":"toggle-block-hidden","layout":{"type":"constrained"}} -->
+<div id="nav-search-panel" class="wp-block-group toggle-block-hidden"><!-- wp:search {"label":"Search","buttonText":"Search"} /--></div>
+<!-- /wp:group -->

@@ -1,5 +1,30 @@
 {
 	/**
+	 * Returns every toggle that controls the element with the given ID.
+	 *
+	 * @param {string} controlsId The controlled element's ID.
+	 * @returns {NodeList} The toggles.
+	 */
+	const getControllingToggles = (controlsId) =>
+		document.querySelectorAll(
+			`.wp-block-happyprime-toggle-block[aria-controls="${CSS.escape(controlsId)}"]`
+		);
+
+	/**
+	 * Returns the body classes a toggle sets while its block is open.
+	 *
+	 * The value can hold several space-separated classes, which classList
+	 * rejects as a single token.
+	 *
+	 * @param {HTMLElement} toggle The toggle button element.
+	 * @returns {string[]} The class names.
+	 */
+	const getBodyClasses = (toggle) =>
+		(toggle.getAttribute('data-body-class') || '')
+			.split(/\s+/)
+			.filter(Boolean);
+
+	/**
 	 * Toggle a block on (show its controlled element).
 	 *
 	 * @param {HTMLElement} toggle The toggle button element.
@@ -17,7 +42,7 @@
 			return;
 		}
 
-		const bodyClass = toggle.getAttribute('data-body-class');
+		const bodyClasses = getBodyClasses(toggle);
 
 		if (!toggle.classList.contains('toggle-block-has-toggled')) {
 			toggle.classList.add('toggle-block-has-toggled');
@@ -27,12 +52,12 @@
 			toggledBlock.classList.add('toggle-block-has-been-toggled');
 		}
 
-		toggle.setAttribute('aria-expanded', 'true');
+		getControllingToggles(controlsId).forEach((el) =>
+			el.setAttribute('aria-expanded', 'true')
+		);
 		toggledBlock.classList.remove('toggle-block-hidden');
 
-		if (bodyClass) {
-			document.body.classList.add(bodyClass);
-		}
+		document.body.classList.add(...bodyClasses);
 	};
 
 	/**
@@ -53,14 +78,14 @@
 			return;
 		}
 
-		const bodyClass = toggle.getAttribute('data-body-class');
+		const bodyClasses = getBodyClasses(toggle);
 
-		toggle.setAttribute('aria-expanded', 'false');
+		getControllingToggles(controlsId).forEach((el) =>
+			el.setAttribute('aria-expanded', 'false')
+		);
 		toggledBlock.classList.add('toggle-block-hidden');
 
-		if (bodyClass) {
-			document.body.classList.remove(bodyClass);
-		}
+		document.body.classList.remove(...bodyClasses);
 	};
 
 	/**
@@ -95,6 +120,66 @@
 		);
 	};
 
+	/**
+	 * Closes a toggle and, inside a group, reopens the group's default toggle.
+	 *
+	 * @param {HTMLElement} toggle The toggle button element.
+	 */
+	const closeToggle = (toggle) => {
+		toggleOff(toggle);
+
+		const group = getToggleGroup(toggle);
+		const defaultToggle = group && getDefaultToggle(group);
+
+		if (defaultToggle && defaultToggle !== toggle) {
+			toggleOn(defaultToggle);
+		}
+	};
+
+	const focusableSelector = [
+		'a[href]',
+		'button:not([disabled])',
+		'input:not([disabled]):not([type="hidden"])',
+		'select:not([disabled])',
+		'textarea:not([disabled])',
+		'summary',
+		'iframe',
+		'[tabindex]:not([tabindex="-1"])',
+	].join(',');
+
+	/**
+	 * Moves focus to the first visible focusable element in a toggled block.
+	 *
+	 * Focus stays on the toggle when the block has nothing to focus.
+	 *
+	 * @param {HTMLElement} toggledBlock The toggled block.
+	 * @param {HTMLElement} toggle       The toggle that opened the block.
+	 */
+	const focusToggledBlock = (toggledBlock, toggle) => {
+		const target = Array.from(
+			toggledBlock.querySelectorAll(focusableSelector)
+		).find((el) => el !== toggle && el.getClientRects().length > 0);
+
+		if (target) {
+			target.focus();
+		}
+	};
+
+	/**
+	 * Moves focus to a toggle outside the toggled block that controls it.
+	 *
+	 * @param {HTMLElement} toggledBlock The toggled block.
+	 */
+	const focusToggle = (toggledBlock) => {
+		const toggle = Array.from(getControllingToggles(toggledBlock.id)).find(
+			(el) => !toggledBlock.contains(el)
+		);
+
+		if (toggle) {
+			toggle.focus();
+		}
+	};
+
 	const handleClick = (evt) => {
 		const toggle = evt.target.closest('.wp-block-happyprime-toggle-block');
 
@@ -114,41 +199,55 @@
 			return;
 		}
 
+		if (!toggledBlock.classList.contains('toggle-block-hidden')) {
+			closeToggle(toggle);
+
+			// A toggle inside the block it hides would leave focus on a
+			// hidden element.
+			if (toggledBlock.contains(toggle)) {
+				focusToggle(toggledBlock);
+			}
+
+			return;
+		}
+
 		const group = getToggleGroup(toggle);
-		const isCurrentlyOpen = !toggledBlock.classList.contains(
-			'toggle-block-hidden'
-		);
 
 		if (group) {
 			// In a group, toggling on closes others.
-			if (!isCurrentlyOpen) {
-				// Close all other toggles in the group.
-				getGroupToggles(group).forEach((otherToggle) => {
-					if (otherToggle !== toggle) {
-						toggleOff(otherToggle);
-					}
-				});
-
-				// Open this toggle.
-				toggleOn(toggle);
-			} else {
-				// Closing the active toggle in a group.
-				toggleOff(toggle);
-
-				// If there's a default toggle and it's not this one,
-				// activate it.
-				const defaultToggle = getDefaultToggle(group);
-
-				if (defaultToggle && defaultToggle !== toggle) {
-					toggleOn(defaultToggle);
+			getGroupToggles(group).forEach((otherToggle) => {
+				if (otherToggle !== toggle) {
+					toggleOff(otherToggle);
 				}
-			}
-		} else {
-			// Not in a group, original toggle behavior.
-			if (!isCurrentlyOpen) {
-				toggleOn(toggle);
-			} else {
-				toggleOff(toggle);
+			});
+		}
+
+		toggleOn(toggle);
+		focusToggledBlock(toggledBlock, toggle);
+	};
+
+	/**
+	 * Closes the open toggled block that holds focus when Escape is pressed.
+	 *
+	 * Focus returns to a toggle that controls the block.
+	 *
+	 * @param {KeyboardEvent} evt The keydown event.
+	 */
+	const handleKeydown = (evt) => {
+		if (evt.key !== 'Escape' || evt.defaultPrevented) {
+			return;
+		}
+
+		for (let el = document.activeElement; el; el = el.parentElement) {
+			const toggles = el.id
+				? Array.from(getControllingToggles(el.id))
+				: [];
+			const toggle = toggles.find((t) => !el.contains(t)) || toggles[0];
+
+			if (toggle && !el.classList.contains('toggle-block-hidden')) {
+				closeToggle(toggle);
+				focusToggle(el);
+				return;
 			}
 		}
 	};
@@ -169,20 +268,16 @@
 					return;
 				}
 
-				const bodyClass = el.getAttribute('data-body-class');
+				const bodyClasses = getBodyClasses(el);
 
 				if (toggledBlock.classList.contains('toggle-block-hidden')) {
 					el.setAttribute('aria-expanded', 'false');
 
-					if (bodyClass) {
-						document.body.classList.remove(bodyClass);
-					}
+					document.body.classList.remove(...bodyClasses);
 				} else {
 					el.setAttribute('aria-expanded', 'true');
 
-					if (bodyClass) {
-						document.body.classList.add(bodyClass);
-					}
+					document.body.classList.add(...bodyClasses);
 				}
 
 				el.addEventListener('click', handleClick);
@@ -217,6 +312,8 @@
 				}
 			}
 		});
+
+		document.addEventListener('keydown', handleKeydown);
 	};
 
 	if (document.readyState === 'loading') {

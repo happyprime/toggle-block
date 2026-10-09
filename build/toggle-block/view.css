@@ -1,7 +1,1 @@
-.wp-site-blocks .toggle-block-hidden {
-	display: none;
-}
-
-.wp-block-happyprime-toggle-block span {
-	pointer-events: none;
-}
+.wp-site-blocks .toggle-block-hidden{display:none}.wp-block-happyprime-toggle-block span{pointer-events:none}

@@ -10,7 +10,7 @@
  * License URI:  https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:  toggle-block
  * Requires PHP: 7.4
- * Tested up to: 7.0
+ * Tested up to: 7.1
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_action( 'init', __NAMESPACE__ . '\register' );
 
 /**
- * Register the block.
+ * Registers the block.
  */
 function register(): void {
 	register_block_type_from_metadata( __DIR__ . '/build/toggle-block' );

@@ -1,0 +1,155 @@
+<!-- wp:paragraph -->
+<p>Each section below uses one Toggle Block feature. Every button controls a block by its HTML anchor.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Hidden until toggled</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The panel starts with the <code>toggle-block-hidden</code> class. It holds a link and a button to check keyboard focus.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:happyprime/toggle-block {"buttonText":"Show details","controlsId":"details-panel"} -->
+<button class="wp-block-happyprime-toggle-block" aria-controls="details-panel"><span>Show details</span></button>
+<!-- /wp:happyprime/toggle-block -->
+
+<!-- wp:group {"className":"toggle-block-hidden","layout":{"type":"constrained"}} -->
+<div id="details-panel" class="wp-block-group toggle-block-hidden"><!-- wp:paragraph -->
+<p>These details were hidden. Read <a href="https://wordpress.org/documentation/">the WordPress documentation</a> or use the button below.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#details-panel">A focusable button</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Visible until toggled</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Without the hidden class the target starts open, and the first press hides it.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:happyprime/toggle-block {"buttonText":"Hide notice","controlsId":"notice-panel"} -->
+<button class="wp-block-happyprime-toggle-block" aria-controls="notice-panel"><span>Hide notice</span></button>
+<!-- /wp:happyprime/toggle-block -->
+
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}},"backgroundColor":"accent-5","layout":{"type":"constrained"}} -->
+<div id="notice-panel" class="wp-block-group has-accent-5-background-color has-background" style="padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)"><!-- wp:paragraph -->
+<p>This notice is visible on load.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Screen reader text</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>This toggle sets an <code>aria-label</code> that extends its visible text.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:happyprime/toggle-block {"buttonText":"More","controlsId":"more-panel","labelText":"More about Toggle Block"} -->
+<button class="wp-block-happyprime-toggle-block" aria-label="More about Toggle Block" aria-controls="more-panel"><span>More</span></button>
+<!-- /wp:happyprime/toggle-block -->
+
+<!-- wp:group {"className":"toggle-block-hidden","layout":{"type":"constrained"}} -->
+<div id="more-panel" class="wp-block-group toggle-block-hidden"><!-- wp:paragraph -->
+<p>Toggle Block renders a button with <code>aria-controls</code> and <code>aria-expanded</code>.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Toggle group</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Toggles inside a block with the <code>toggle-block-group</code> class close each other. "Overview" is the default toggle, so it opens on load and again when another panel closes.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:group {"className":"toggle-block-group","layout":{"type":"constrained"}} -->
+<div class="wp-block-group toggle-block-group"><!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap"}} -->
+<div class="wp-block-group"><!-- wp:happyprime/toggle-block {"buttonText":"Overview","controlsId":"tab-overview","defaultToggle":true} -->
+<button class="wp-block-happyprime-toggle-block" aria-controls="tab-overview" data-default-toggle="true"><span>Overview</span></button>
+<!-- /wp:happyprime/toggle-block -->
+
+<!-- wp:happyprime/toggle-block {"buttonText":"Features","controlsId":"tab-features"} -->
+<button class="wp-block-happyprime-toggle-block" aria-controls="tab-features"><span>Features</span></button>
+<!-- /wp:happyprime/toggle-block -->
+
+<!-- wp:happyprime/toggle-block {"buttonText":"Support","controlsId":"tab-support"} -->
+<button class="wp-block-happyprime-toggle-block" aria-controls="tab-support"><span>Support</span></button>
+<!-- /wp:happyprime/toggle-block --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"toggle-block-hidden","layout":{"type":"constrained"}} -->
+<div id="tab-overview" class="wp-block-group toggle-block-hidden"><!-- wp:paragraph -->
+<p>Overview panel.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"toggle-block-hidden","layout":{"type":"constrained"}} -->
+<div id="tab-features" class="wp-block-group toggle-block-hidden"><!-- wp:paragraph -->
+<p>Features panel.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"toggle-block-hidden","layout":{"type":"constrained"}} -->
+<div id="tab-support" class="wp-block-group toggle-block-hidden"><!-- wp:paragraph -->
+<p>Support panel with <a href="https://github.com/happyprime/toggle-block/issues">a link to the issue tracker</a>.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Body class</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>This toggle adds <code>toggle-block-demo-dark</code> to the body while its panel is open. The Custom HTML block below styles that class.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:html -->
+<style>body.toggle-block-demo-dark{background:#1e1e1e;color:#f0f0f0}</style>
+<!-- /wp:html -->
+
+<!-- wp:happyprime/toggle-block {"bodyClass":"toggle-block-demo-dark","buttonText":"Dark mode","controlsId":"dark-panel"} -->
+<button class="wp-block-happyprime-toggle-block" aria-controls="dark-panel" data-body-class="toggle-block-demo-dark"><span>Dark mode</span></button>
+<!-- /wp:happyprime/toggle-block -->
+
+<!-- wp:group {"className":"toggle-block-hidden","layout":{"type":"constrained"}} -->
+<div id="dark-panel" class="wp-block-group toggle-block-hidden"><!-- wp:paragraph -->
+<p>The body has the <code>toggle-block-demo-dark</code> class while this panel is open.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Open and close buttons</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Two toggles control one panel. Opening moves focus to the close button inside the panel, and closing returns it to the open button. Escape closes the panel from anywhere inside it.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:happyprime/toggle-block {"buttonText":"Open menu","controlsId":"menu-panel"} -->
+<button class="wp-block-happyprime-toggle-block" aria-controls="menu-panel"><span>Open menu</span></button>
+<!-- /wp:happyprime/toggle-block -->
+
+<!-- wp:group {"className":"toggle-block-hidden","layout":{"type":"constrained"}} -->
+<div id="menu-panel" class="wp-block-group toggle-block-hidden"><!-- wp:happyprime/toggle-block {"buttonText":"Close menu","controlsId":"menu-panel"} -->
+<button class="wp-block-happyprime-toggle-block" aria-controls="menu-panel"><span>Close menu</span></button>
+<!-- /wp:happyprime/toggle-block -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li><a href="#menu-panel">First menu link</a></li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><a href="#menu-panel">Second menu link</a></li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></div>
+<!-- /wp:group -->

@@ -2,7 +2,7 @@
 Contributors: happyprime, jeremyfelt, slocker, philcable
 Tags: toggle, button, show, hide
 Requires at least: 6.9
-Tested up to: 7.0
+Tested up to: 7.1
 Stable tag: 1.0.0
 License: GPLv2 or later
 Requires PHP: 7.4
@@ -26,6 +26,16 @@ The intended use is in a site's template, through the site editor or your theme 
 When the toggle block is selected in the editor, toggle settings appear in the sidebar panel, including a block selection interface and text input fields for "Controls ID" and screen reader text.
 
 The "Controls ID" entered in this panel must match the "HTML anchor" assigned to another block through its advanced panel. When the toggle is activated, the targeted block is shown or hidden.
+
+To hide the targeted block until the toggle is activated, add `toggle-block-hidden` to its "Additional CSS class(es)" field. The class takes effect in block themes.
+
+To make toggles close one another, place them inside a block with the `toggle-block-group` class. Turn on "Default toggle" for the one that should be open when the others are closed.
+
+When a toggle opens a block that contains links, buttons, or form fields, focus moves to the first of them. Pressing Escape inside the block closes it and returns focus to the toggle.
+
+## Source code
+
+The JavaScript in `build/` is compiled from `src/` in the plugin's repository: https://github.com/happyprime/toggle-block
 
 ## Changelog
 
