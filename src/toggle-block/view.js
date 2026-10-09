@@ -1,5 +1,16 @@
 {
 	/**
+	 * Returns every toggle that controls the element with the given ID.
+	 *
+	 * @param {string} controlsId The controlled element's ID.
+	 * @returns {NodeList} The toggles.
+	 */
+	const getControllingToggles = (controlsId) =>
+		document.querySelectorAll(
+			`.wp-block-happyprime-toggle-block[aria-controls="${CSS.escape(controlsId)}"]`
+		);
+
+	/**
 	 * Toggle a block on (show its controlled element).
 	 *
 	 * @param {HTMLElement} toggle The toggle button element.
@@ -27,7 +38,9 @@
 			toggledBlock.classList.add('toggle-block-has-been-toggled');
 		}
 
-		toggle.setAttribute('aria-expanded', 'true');
+		getControllingToggles(controlsId).forEach((el) =>
+			el.setAttribute('aria-expanded', 'true')
+		);
 		toggledBlock.classList.remove('toggle-block-hidden');
 
 		if (bodyClass) {
@@ -55,7 +68,9 @@
 
 		const bodyClass = toggle.getAttribute('data-body-class');
 
-		toggle.setAttribute('aria-expanded', 'false');
+		getControllingToggles(controlsId).forEach((el) =>
+			el.setAttribute('aria-expanded', 'false')
+		);
 		toggledBlock.classList.add('toggle-block-hidden');
 
 		if (bodyClass) {
