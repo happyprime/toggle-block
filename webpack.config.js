@@ -43,7 +43,12 @@ module.exports = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets: ['@babel/preset-env', '@babel/preset-react'],
+						presets: [
+							'@babel/preset-env',
+							// Babel 8 emits react/jsx-dev-runtime unless told
+							// otherwise, which WordPress does not provide.
+							['@babel/preset-react', { development: false }],
+						],
 						plugins: ['@babel/plugin-transform-runtime'],
 					},
 				},
