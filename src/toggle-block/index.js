@@ -82,6 +82,8 @@ const Edit = (props) => {
 				onChange={(value) => {
 					setAttributes({ buttonText: value });
 				}}
+				// A link inside a button is invalid HTML.
+				withoutInteractiveFormatting
 			/>
 		</>
 	);
