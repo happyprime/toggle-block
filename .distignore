@@ -21,3 +21,4 @@ package.json
 phpstan.neon.dist
 README.md
 webpack.config.js
+.wordpress-org/
