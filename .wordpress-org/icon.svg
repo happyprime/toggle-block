@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+<title id="title">Toggle Block</title>
+<desc id="desc">A white geometric icon on a circular color badge.</desc>
+<defs>
+  <linearGradient id="badge-toggle-block" x1="100%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#62604F"/>
+    <stop offset="28%" stop-color="#3F403F"/>
+    <stop offset="100%" stop-color="#000000"/>
+  </linearGradient>
+<mask id="notch-toggle-block"><rect width="256" height="256" fill="#fff"/><polygon points="201.2,58.4 359.1,32.3 370.6,-111.6 226.7,-99.5" fill="#000" stroke="#000" stroke-width="6.6" stroke-linejoin="round"/></mask>
+</defs>
+<circle cx="128" cy="128" r="118" fill="url(#badge-toggle-block)" mask="url(#notch-toggle-block)"/>
+
+  <g class="glyph" transform="translate(128 128) scale(0.85) translate(-128 -128)">
+<!-- Expand/collapse disclosure in a Gutenberg-style block. -->
+  <rect x="63" y="63" width="130" height="130" rx="15" fill="none" stroke="#fff" stroke-width="12"/>
+  <path d="m89 98 15 15-15 15" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M121 113h46M89 158h78" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round"/>
+  </g>
+</svg>
